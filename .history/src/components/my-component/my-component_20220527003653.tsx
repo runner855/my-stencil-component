@@ -11,7 +11,7 @@ export class MyComponent {
   results: any;
 
   componentWillLoad() {
-    fetch('https://swapi.dev/api/people/1')
+    fetch('https://swapi.dev/api/people')
       .then((response: Response) => response.json())
       .then(response => {
 

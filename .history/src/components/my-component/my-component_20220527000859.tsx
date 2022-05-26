@@ -14,15 +14,9 @@ export class MyComponent {
     fetch('https://swapi.dev/api/people/1')
       .then((response: Response) => response.json())
       .then(response => {
+        console.log(response.results[0].title)
 
-        console.log("here", response.results)
-
-
-
-        this.name = response['name'];
-
-
-
+        this.results = response.results[0].title;
       });
   }
 
@@ -32,12 +26,11 @@ export class MyComponent {
 
 
   render() {
-    return (
+    return [
       <ul>
-        <li>{this.name}</li>
+        <li><p>{this.results}</p></li>
       </ul>
-
-    )
+    ]
 
   }
 

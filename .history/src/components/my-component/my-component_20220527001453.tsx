@@ -11,17 +11,12 @@ export class MyComponent {
   results: any;
 
   componentWillLoad() {
-    fetch('https://swapi.dev/api/people/1')
+    fetch('https://swapi.dev/api/people/1/')
       .then((response: Response) => response.json())
       .then(response => {
-
-        console.log("here", response.results)
-
-
+        console.log(response)
 
         this.name = response['name'];
-
-
 
       });
   }
@@ -32,12 +27,14 @@ export class MyComponent {
 
 
   render() {
-    return (
-      <ul>
-        <li>{this.name}</li>
-      </ul>
+    return [
+      <ion-list style="text-align:center;">
+        <ion-item>
+          <ion-label>{this.name}</ion-label>
+        </ion-item>
 
-    )
+      </ion-list>
+    ]
 
   }
 

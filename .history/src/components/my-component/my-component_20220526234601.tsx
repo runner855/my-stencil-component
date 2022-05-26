@@ -1,5 +1,5 @@
 
-import { Component, h, State } from '@stencil/core';
+import { Component, State } from '@stencil/core';
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.css',
@@ -7,22 +7,12 @@ import { Component, h, State } from '@stencil/core';
 })
 export class MyComponent {
   @State() name: string;
-  count: any;
-  results: any;
 
   componentWillLoad() {
-    fetch('https://swapi.dev/api/people/1')
+    fetch('https://swapi.dev/api/people')
       .then((response: Response) => response.json())
       .then(response => {
-
-        console.log("here", response.results)
-
-
-
         this.name = response['name'];
-
-
-
       });
   }
 
@@ -33,10 +23,7 @@ export class MyComponent {
 
   render() {
     return (
-      <ul>
-        <li>{this.name}</li>
-      </ul>
-
+      <h1>Hello</h1>
     )
 
   }

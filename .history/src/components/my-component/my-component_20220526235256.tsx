@@ -8,21 +8,14 @@ import { Component, h, State } from '@stencil/core';
 export class MyComponent {
   @State() name: string;
   count: any;
-  results: any;
 
   componentWillLoad() {
-    fetch('https://swapi.dev/api/people/1')
+    fetch('https://swapi.dev/api/films')
       .then((response: Response) => response.json())
       .then(response => {
+        console.log(response)
 
-        console.log("here", response.results)
-
-
-
-        this.name = response['name'];
-
-
-
+        this.count = response['count'];
       });
   }
 
@@ -32,12 +25,11 @@ export class MyComponent {
 
 
   render() {
-    return (
+    return [
       <ul>
-        <li>{this.name}</li>
+        <li>{this.count}</li>
       </ul>
-
-    )
+    ]
 
   }
 
